@@ -1,6 +1,6 @@
 # Multi-Granularity-Fusion-Adaptive-Temperature-Scaling-for-Knowledge-Distillation
 
-#  Knowledge Distillation with Adaptive Temperature Scaling (ATS) for Plant Disease Classification
+## Knowledge Distillation with Adaptive Temperature Scaling (ATS) for Plant Disease Classification
 
 A comprehensive **PyTorch research project** implementing **Knowledge Distillation with multiple Adaptive Temperature Scaling (ATS) methods** for plant disease classification. This project demonstrates four granularities of temperature adaptation: **Samplewise, Classwise, Learnable, and Fusion (combining all three)** on two agricultural datasets: **PlantVillage** and **SoyMulticlass**.
 
