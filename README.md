@@ -123,7 +123,7 @@ The core architecture demonstrates how teacher and student models interact throu
 
 **Fusion ATS (Combining all three):**
 - Weighted combination of all granularities
-- \(T_{fusion} = \alpha · T_i + \beta · T_c + \gamma · T_{learnable}\)
+- \(T_{fusion}  = α_Samplewise  · T_i  + ß_classwise · T_c + Γ_learnable · T_{learnable}\)
 - Default: α=0.33, β=0.33, γ=0.34 (sum to 1)
 - Provides most comprehensive guidance
 
