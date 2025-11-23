@@ -85,7 +85,7 @@ This powerful infrastructure enables rapid experimentation with large models and
 The core architecture demonstrates how teacher and student models interact through temperature-scaled knowledge transfer:
 
 ![image alt](https://github.com/Jimmy2663/Multi-Granularity-Fusion-Adaptive-Temperature-Scaling-for-Knowledge-Distillation/blob/4822f064c7dd1ac6d76f0918bdc5b4dca005693a/KD_ATS_workflow.jpg)
-![image alt]()
+![image alt](https://github.com/Jimmy2663/Multi-Granularity-Fusion-Adaptive-Temperature-Scaling-for-Knowledge-Distillation/blob/c7198a252c7a9d41e91fed703518996168dcb823/KD_architechture.jpg)
 
 #### Architecture Components Explained:
 
