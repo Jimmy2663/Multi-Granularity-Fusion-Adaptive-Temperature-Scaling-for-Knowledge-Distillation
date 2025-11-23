@@ -54,7 +54,7 @@ The project also uses the **PlantVillage dataset** for general plant disease cla
 
 ##  Hardware & Software Infrastructure
 
-### Computing Environment - AgriHub Technology Center Node
+### Computing Environment - AgriHub Technology Center Node, Indian Institute of Technology, Indore.
 
 The experiments were conducted on high-performance GPU-accelerated infrastructure:
 
