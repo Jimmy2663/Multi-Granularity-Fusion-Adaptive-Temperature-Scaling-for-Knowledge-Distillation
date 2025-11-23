@@ -84,69 +84,8 @@ This powerful infrastructure enables rapid experimentation with large models and
 
 The core architecture demonstrates how teacher and student models interact through temperature-scaled knowledge transfer:
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                     KNOWLEDGE DISTILLATION WITH ATS                 │
-├─────────────────────────────────────────────────────────────────────┤
-│                                                                     │
-│  INPUT: 224×224×3 Image                                            │
-│           │                                                         │
-│           ├─────────────────────────────┬──────────────────────┐   │
-│           │                             │                      │   │
-│           ▼                             ▼                      ▼   │
-│    ┌─────────────────┐          ┌─────────────────┐      (ATS    │
-│    │  TEACHER MODEL  │          │  STUDENT MODEL  │      Methods) │
-│    │   (VGG16)       │          │ (MobileNetV3)   │               │
-│    │                 │          │                 │    ┌────────┐ │
-│    │  Logits: Zt     │          │  Logits: Zs     │    │Samplewise│ │
-│    └────────┬────────┘          └────────┬────────┘    │T_i per│ │
-│             │                            │             │sample│ │
-│    ┌────────▼─────────┐        ┌────────▼────────┐    └────┬───┘ │
-│    │ Softmax(Zt / T)  │        │ Softmax(Zs / T) │         │    │
-│    │  (Soft Labels)   │        │ (Soft Predict)  │    ┌────▼───┐ │
-│    └────────┬─────────┘        └────────┬────────┘    │Classwise  │
-│             │                           │            │T_c per│ │
-│             │                    ┌──────▼──────┐     │class │ │
-│             │                    │ Hard Labels │     └────┬───┘ │
-│             │                    │ (Ground y)  │          │    │
-│             │                    └──────┬──────┘    ┌────▼───────┐
-│             │                           │          │ Learnable   │
-│             ├───────────────────────────┤          │ T_learnable │
-│             │                           │          │ (learned)   │
-│    ┌────────▼─────────────────────┐   │          └────┬────────┘
-│    │ KL DIVERGENCE LOSS           │   │               │
-│    │ (Soft Target Learning)       │   │          ┌────▼────────┐
-│    │ loss_kd = KL(T_soft || S_soft)  │          │ FUSION MODULE│
-│    └────────┬─────────────────────┘   │          │ T_fusion =   │
-│             │                           │          │ α·T_sample  │
-│    ┌────────▼─────────────────────┐   │          │ + β·T_class │
-│    │ CROSS ENTROPY LOSS            │   │          │ + γ·T_learn │
-│    │ (Hard Label Learning)         │   │          └────┬────────┘
-│    │ loss_ce = CE(Zs, y)           │   │               │
-│    └────────┬─────────────────────┘   │               │
-│             │                           │               │
-│             └───────────────────────────┼───────────────┘
-│                                         │
-│             ┌──────────────────────────▼──────────────────────┐
-│             │ TOTAL LOSS AGGREGATION                         │
-│             │ L_total = α·L_ce + (1-α)·L_kd                 │
-│             │ + Temperature Regularization                   │
-│             └──────────────────────────┬──────────────────────┘
-│                                        │
-│                     ┌──────────────────▼──────────────────┐
-│                     │  BACKPROPAGATION                    │
-│                     │  Update Student & ATS Parameters    │
-│                     └──────────────────┬──────────────────┘
-│                                        │
-│                         ▼              │
-│                    ┌─────────────┐     │
-│                    │ Updated     │     │
-│                    │ Student     │◄────┘
-│                    │ Weights     │
-│                    └─────────────┘
-│
-└─────────────────────────────────────────────────────────────────────┘
-```
+![image alt](https://github.com/Jimmy2663/Multi-Granularity-Fusion-Adaptive-Temperature-Scaling-for-Knowledge-Distillation/blob/4822f064c7dd1ac6d76f0918bdc5b4dca005693a/KD_ATS_workflow.jpg)
+![image alt]()
 
 #### Architecture Components Explained:
 
