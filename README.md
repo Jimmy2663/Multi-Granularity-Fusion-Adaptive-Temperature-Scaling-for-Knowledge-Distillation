@@ -44,6 +44,8 @@ The project includes experiments on the **SoyMulticlass Dataset** containing 10,
 | 3 | **Yellow Mosaic Virus** | Irregular green and yellow patches in leaves | Viral Infection |
 | 4 | **Healthy** | No disease symptoms present | No Infection |
 
+![image alt](https://github.com/Jimmy2663/Multi-Granularity-Fusion-Adaptive-Temperature-Scaling-for-Knowledge-Distillation/blob/258f710845af4d892d300b143c63e99eb28f3aac/Screenshot%202025-11-23%20204236.png)
+
 ### Dataset 2: PlantVillage Dataset
 
 The project also uses the **PlantVillage dataset** for general plant disease classification across multiple crop types and diseases.
