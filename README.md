@@ -385,7 +385,7 @@ The complete experimental workflow orchestrates teacher training followed by fou
 ##  Project Structure
 
 ```
-├── experiment.py               # ⭐ Main orchestrator (5 phases of training)
+├── experiment.py               #  Main orchestrator (5 phases of training)
 ├── engine.py                   # Standard training/evaluation loop
 ├── KD_engine.py               # Knowledge distillation with all ATS granularities
 ├── model_builder.py           # VGG16 (teacher) + MobileNetV3Large (students)
